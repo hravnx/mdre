@@ -1,2 +1,2 @@
 # mdre
-React starter kit with Material Design, readux and webpack
+React starter kit with Material Design, redux and webpack

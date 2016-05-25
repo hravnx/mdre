@@ -1,0 +1,12 @@
+{
+  "name": "mdre",
+  "description": "A React starter kit with Material Design, redux and webpack configured",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Henrik Ravn <hravnx@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:hravnx/mdre.git"
+  }
+
+}
