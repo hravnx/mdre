@@ -2,6 +2,9 @@
   "name": "mdre",
   "description": "A React starter kit with Material Design, redux and webpack configured",
   "version": "0.1.0",
+  "scripts": {
+    "start": "webpack-dev-server --no-info --history-api-fallback --inline --hot --content-base src/"
+  },
   "private": true,
   "license": "MIT",
   "author": "Henrik Ravn <hravnx@gmail.com>",
@@ -9,6 +12,7 @@
     "type": "git",
     "url": "git@github.com:hravnx/mdre.git"
   },
+
   "dependencies": {
     "material-ui": "^0.15.0",
     "object-assign": "^4.1.0",
