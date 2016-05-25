@@ -3,6 +3,9 @@ logs
 *.log
 npm-debug.log*
 
+# webstorms folder
+.idea
+
 # Runtime data
 pids
 *.pid
