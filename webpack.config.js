@@ -1,11 +1,35 @@
 var webpack = require('webpack');
 var path = require('path');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
+const devToolSetting = isProduction ? 'source-map' : 'cheap-module-eval-source-map';
+
+const GLOBALS = isProduction ? {
+  'process.env.NODE_ENV': JSON.stringify('production'),
+  __DEV__: false
+} : {
+  'process.env.NODE_ENV': JSON.stringify('development'),
+  __DEV__: true
+};
+
+
+const PLUGINS = isProduction ? [
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.DefinePlugin(GLOBALS),
+  new webpack.optimize.DedupePlugin(),
+  new webpack.optimize.UglifyJsPlugin()
+] : [
+  new webpack.DefinePlugin(GLOBALS), // Tells React to build in prod mode. https://facebook.github.io/react/downloads.htmlnew webpack.HotModuleReplacementPlugin());
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NoErrorsPlugin()
+];
+
 
 module.exports = {
-  debug: true,
+  debug: !isProduction,
 
-  devtool: 'cheap-module-eval-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
+  devtool: devToolSetting,
 
   noInfo: true, // set to false to see a list of every file being bundled.
 
@@ -17,6 +41,8 @@ module.exports = {
     path: path.join(__dirname, 'dist'), // Note: Physical files are only output by the production build task `npm run build`.
     filename: 'bundle.js'
   },
+
+  plugins: PLUGINS,
 
   module: {
     loaders: [

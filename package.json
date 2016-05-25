@@ -3,7 +3,8 @@
   "description": "A React starter kit with Material Design, redux and webpack configured",
   "version": "0.1.0",
   "scripts": {
-    "start": "webpack-dev-server --no-info --history-api-fallback --inline --hot --content-base src/"
+    "start": "webpack-dev-server --no-info --history-api-fallback --inline --hot --content-base src/",
+    "build": "cross-env NODE_ENV=production webpack -p"
   },
   "private": true,
   "license": "MIT",
@@ -12,7 +13,6 @@
     "type": "git",
     "url": "git@github.com:hravnx/mdre.git"
   },
-
   "dependencies": {
     "material-ui": "^0.15.0",
     "object-assign": "^4.1.0",
@@ -30,6 +30,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-1": "^6.5.0",
+    "cross-env": "^1.0.8",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",
     "node-sass": "^3.7.0",
